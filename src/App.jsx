@@ -1,4 +1,4 @@
-import { asyncGetQuote } from './services/promise-me';
+import { asyncGetQuote, thenGetQuote } from './services/promise-me';
 
 export default function App() {
   return (
