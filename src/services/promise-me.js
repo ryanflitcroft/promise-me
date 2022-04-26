@@ -122,6 +122,12 @@ export function finallyThenGetQuote() {
  * TODO: Exercise 7: Call your function from exercise 7 using .then
  */
 
+export function thenAsyncGetQuote() {
+  return tryFinallyAsyncGetQuotes().then((res) =>
+    console.log('5: one More!', res)
+  );
+}
+
 /**
  * TODO: Exercise 8: Call your function from exercise 6 using async/await
  */
