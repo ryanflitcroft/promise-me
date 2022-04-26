@@ -2,6 +2,7 @@ import {
   asyncGetQuote,
   thenGetQuote,
   tryAsyncGetQuote,
+  catchThenGetQuote,
 } from './services/promise-me';
 
 export default function App() {
@@ -13,6 +14,9 @@ export default function App() {
       <button onClick={() => thenGetQuote()}>then get quote</button>
       <button onClick={async () => await tryAsyncGetQuote()}>
         try async get quote
+      </button>
+      <button onClick={async () => await catchThenGetQuote()}>
+        catch then get quote
       </button>
     </>
   );

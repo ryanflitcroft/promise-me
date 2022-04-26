@@ -60,6 +60,21 @@ export async function tryAsyncGetQuote() {
  * TODO: Exercise 4: use `fetch`, `.then`, and `.catch` to get the same data from exercise 3 while handling errors
  */
 
+export function catchThenGetQuote() {
+  console.log('1: this function is non-blocking');
+  const res = fetch(url, {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+  })
+    .then((res) => res.json())
+    .then((res) => console.log('2: this is the fetch response', res))
+    .catch((error) => console.error('oops!', error));
+
+  console.log('3: this line comes after fetch .then chain');
+
+  return res;
+}
+
 /**
  * TODO: Exercise 5: use `fetch`, async/await, and a try/catch/finally statement to get data from an API, handle errors, then console.log('All done!') upon completion
  */
