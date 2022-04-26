@@ -39,6 +39,23 @@ export function thenGetQuote() {
  * TODO: Exercise 3: use `fetch`, async/await, and a try/catch statement to get data from an API and handle errors
  */
 
+export async function tryAsyncGetQuote() {
+  try {
+    console.log('1: this function is blocking');
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: { accept: 'application/json' },
+    });
+    console.log('2: ', res);
+    const json = await res.json();
+    console.log('3:', json);
+
+    return json;
+  } catch (error) {
+    console.error('nope!', error);
+  }
+}
+
 /**
  * TODO: Exercise 4: use `fetch`, `.then`, and `.catch` to get the same data from exercise 3 while handling errors
  */

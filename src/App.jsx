@@ -1,4 +1,8 @@
-import { asyncGetQuote, thenGetQuote } from './services/promise-me';
+import {
+  asyncGetQuote,
+  thenGetQuote,
+  tryAsyncGetQuote,
+} from './services/promise-me';
 
 export default function App() {
   return (
@@ -7,6 +11,9 @@ export default function App() {
         async get quote
       </button>
       <button onClick={() => thenGetQuote()}>then get quote</button>
+      <button onClick={async () => await tryAsyncGetQuote()}>
+        try async get quote
+      </button>
     </>
   );
 }
