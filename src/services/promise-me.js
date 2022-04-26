@@ -102,6 +102,22 @@ export async function tryFinallyAsyncGetQuotes() {
  * TODO: Exercise 6: use `fetch`, `.then`, `.catch`. and `.finally` to get the same data from exercise 5 while handling errors and calling console.log('All done!') upon completion
  */
 
+export function finallyThenGetQuote() {
+  console.log('1: this function is non-blocking');
+  const res = fetch(url, {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+  })
+    .then((res) => res.json())
+    .then((res) => console.log('2: this is the fetch response', res))
+    .catch((error) => console.error('oops!', error))
+    .finally(() => console.log('4: All done!'));
+
+  console.log('3: this line comes after fetch .then chain');
+
+  return res;
+}
+
 /**
  * TODO: Exercise 7: Call your function from exercise 7 using .then
  */
