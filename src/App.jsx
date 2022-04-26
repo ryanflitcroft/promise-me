@@ -1,3 +1,12 @@
+import { asyncGetQuote } from './services/promise-me';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <button onClick={async () => await asyncGetQuote()}>
+        async get quote
+      </button>
+      <button onClick={() => thenGetQuote()}>then get quote</button>
+    </>
+  );
 }

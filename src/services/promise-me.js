@@ -1,6 +1,21 @@
+import { response } from 'msw';
+
+const url = 'https://programming-quotes-api.herokuapp.com/Quotes/random';
 /**
  * TODO: Exercise 1: use `fetch` & async/await to get data from an API
  */
+export async function asyncGetQuote() {
+  console.log('1: this function is blocking');
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+  });
+  console.log('2: ', res);
+  const json = await res.json();
+  console.log('3:', json);
+
+  return json;
+}
 
 /**
  * TODO: Exercise 2: use `fetch` & `.then` syntax to get the same data from the first exercise.
@@ -29,4 +44,3 @@
 /**
  * TODO: Exercise 8: Call your function from exercise 6 using async/await
  */
-
